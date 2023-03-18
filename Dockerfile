@@ -19,7 +19,6 @@ COPY tsconfig.json tsconfig.json
 COPY tsconfig.app.json tsconfig.app.json
 COPY tsconfig.spec.json tsconfig.spec.json
 COPY angular.json angular.json
-COPY karma.conf.js karma.conf.js
 COPY tailwind.config.js tailwind.config.js
 
 #RUN npm run build:${CONFIGURATION}
