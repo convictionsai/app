@@ -1,24 +1,287 @@
 import { CommonModule } from "@angular/common";
 import { Component } from "@angular/core";
+import { RouterLink } from "@angular/router";
+import { IconComponent } from "../icons/icon.component";
 
 @Component({
     selector: "convictionsai-header",
     standalone: true,
-    imports: [CommonModule],
+    imports: [CommonModule, RouterLink, IconComponent],
     template: `
-        <header class="fixed left-0 right-0 shadow-md">
-            <nav class="bg-white border-gray-200 dark:border-gray-600 dark:bg-gray-800">
-                <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl px-4 md:px-6 py-2.5">
-                    <a href="https://flowbite.com" class="flex items-center">
-                        <img src="https://flowbite.com/docs/images/logo.svg" class="mr-3 h-6 sm:h-9" alt="Flowbite Logo" />
-                        <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+        <header class="">
+            <nav class="bg-purple-400 shadow-2xl border-b-4 border-purple-500">
+                <div class="flex flex-wrap items-center px-4 py-2.5 gap-8">
+                    <a routerLink="/" class="flex items-center">
+                        <span class="mr-2 self-center whitespace-nowrap text-xl font-semibold dark:text-white">convictions</span>
+                        <svg
+                            class="h-8 w-8"
+                            version="1.1"
+                            id="Capa_1"
+                            xmlns="http://www.w3.org/2000/svg"
+                            xmlns:xlink="http://www.w3.org/1999/xlink"
+                            x="0px"
+                            y="0px"
+                            viewBox="0 0 391 391"
+                            style="enable-background:new 0 0 391 391;"
+                            xml:space="preserve">
+                            <g>
+                                <path
+                                    d="M390.269,186.529l-75-123c-1.263-2.07-3.829-2.937-6.084-2.056l-8.965,3.493l-1.259-2.065
+		c-1.859-3.049-5.638-4.327-8.965-3.029L195.5,96.69l-94.496-36.817c-3.33-1.298-7.106-0.02-8.965,3.029l-1.259,2.065l-8.965-3.493
+		c-2.257-0.88-4.823-0.014-6.084,2.056l-75,123c-0.768,1.259-0.941,2.792-0.473,4.19c0.468,1.398,1.529,2.518,2.899,3.061
+		l106.966,42.394l-13.941,89.69c-0.224,1.443,0.194,2.912,1.144,4.021c0.95,1.109,2.337,1.747,3.797,1.747h12.486
+		c1.011,0,1.997-0.306,2.831-0.878l79.06-54.306l79.06,54.306c0.833,0.572,1.82,0.878,2.831,0.878h12.486
+		c1.46,0,2.848-0.638,3.797-1.747c0.95-1.109,1.368-2.578,1.144-4.021l-13.941-89.69l106.966-42.394
+		c1.371-0.543,2.431-1.663,2.899-3.061C391.21,189.321,391.037,187.788,390.269,186.529z M199.5,224.227v-64c0-2.209-1.791-4-4-4
+		s-4,1.791-4,4v64L46.071,166.59l55.335-90.748l91.419,35.619c1.721,0.67,3.629,0.67,5.35,0l91.419-35.619l55.334,90.748
+		L199.5,224.227z" />
+                                <path
+                                    d="M284.28,106.929c-0.803-2.058-3.122-3.079-5.18-2.274l-59,23c-2.059,0.803-3.077,3.122-2.274,5.18
+		c0.617,1.581,2.127,2.548,3.728,2.548c0.483,0,0.975-0.088,1.452-0.274l59-23C284.064,111.306,285.082,108.987,284.28,106.929z" />
+                                <path
+                                    d="M229.829,149.639c-2.059,0.803-3.077,3.122-2.274,5.18c0.617,1.581,2.127,2.548,3.728,2.548
+		c0.483,0,0.975-0.088,1.452-0.274l59-23c2.059-0.803,3.077-3.122,2.274-5.18c-0.803-2.058-3.122-3.078-5.18-2.274L229.829,149.639z
+		" />
+                                <path
+                                    d="M238.062,178.835c0.617,1.581,2.127,2.548,3.728,2.548c0.483,0,0.975-0.088,1.452-0.274l59-23
+		c2.059-0.803,3.077-3.122,2.274-5.18c-0.803-2.059-3.124-3.078-5.18-2.275l-59,23C238.278,174.458,237.26,176.776,238.062,178.835z
+		" />
+                                <path
+                                    d="M170.9,127.655l-59-23c-2.055-0.802-4.376,0.216-5.18,2.274c-0.802,2.058,0.216,4.377,2.274,5.18l59,23
+		c0.477,0.186,0.968,0.274,1.452,0.274c1.6,0,3.111-0.967,3.728-2.548C173.977,130.776,172.959,128.458,170.9,127.655z" />
+                                <path
+                                    d="M161.172,149.639l-59-23c-2.056-0.803-4.377,0.216-5.18,2.274c-0.802,2.058,0.216,4.377,2.274,5.18l59,23
+		c0.477,0.186,0.968,0.274,1.452,0.274c1.6,0,3.111-0.967,3.728-2.548C164.248,152.761,163.23,150.442,161.172,149.639z" />
+                                <path
+                                    d="M150.664,173.655l-59-23c-2.056-0.801-4.377,0.215-5.18,2.275c-0.802,2.058,0.216,4.377,2.274,5.18l59,23
+		c0.477,0.186,0.968,0.274,1.452,0.274c1.6,0,3.111-0.967,3.728-2.548C153.74,176.776,152.722,174.458,150.664,173.655z" />
+                            </g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                            <g></g>
+                        </svg>
                     </a>
-                    <div class="flex items-center">
+                    <div class="flex items-center gap-4">
+                        <!--                        <icon routerLink="dashboard" name="homeAccent" [width]="8" class="fill-gray-400"></icon>-->
+                        <!--                        <icon routerLink="reader" name="read" [width]="9.5" class="fill-purple-500"></icon>-->
+                        <!--                        <icon routerLink="events" name="date" [width]="7.5" class="fill-gray-400"></icon>-->
+                        <!--                        <icon routerLink="community" name="community" [width]="9" class="fill-gray-400"></icon>-->
+                        <a routerLink="/dashboard" class="">Home</a>
+                        <a routerLink="reader" class="">Reader</a>
+                        <a routerLink="events" class="">Events</a>
+                        <a routerLink="community" class="">Community</a>
+                    </div>
+                    <!-- search -->
+                    <form class="flex flex-1">
+                        <label for="search-dropdown" class="sr-only mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your Email</label>
+                        <button
+                            id="dropdown-button"
+                            data-dropdown-toggle="dropdown"
+                            class="z-10 hidden flex-shrink-0 items-center rounded-l-lg border border-gray-200 bg-gray-100 py-2.5 px-4 text-center text-sm font-medium text-gray-900 hover:bg-gray-200 focus:outline-none focus:ring-4 focus:ring-gray-100 dark:border-gray-600 dark:bg-gray-900 dark:text-white dark:hover:bg-gray-800 dark:focus:ring-gray-700 md:inline-flex"
+                            type="button">
+                            All categories
+                            <svg class="ml-1 h-4 w-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg>
+                        </button>
+                        <div
+                            id="dropdown"
+                            class="z-10 hidden w-44 divide-y divide-gray-100 rounded bg-white shadow dark:bg-gray-700"
+                            data-popper-reference-hidden=""
+                            data-popper-escaped=""
+                            data-popper-placement="top"
+                            style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(897px, 5637px, 0px);">
+                            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
+                                <li>
+                                    <button type="button" class="inline-flex w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mockups</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="inline-flex w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Templates</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="inline-flex w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Design</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="inline-flex w-full py-2 px-4 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logos</button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="relative w-full">
+                            <input
+                                type="search"
+                                id="search-dropdown"
+                                class="border-l-1 md:border-l-6 z-20 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:border-l-gray-600 dark:bg-gray-800 dark:text-white  dark:placeholder-gray-400 dark:focus:border-primary-500 md:rounded-l-none md:border-l-gray-50"
+                                placeholder="Search anything..."
+                                required />
+                            <button
+                                type="submit"
+                                class="absolute top-0 right-0 rounded-r-lg border border-primary-700 bg-primary-700 p-2.5 text-sm font-medium text-white hover:bg-primary-800 focus:outline-none focus:ring-4 focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
+                                <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                    <div class="flex items-center gap-3">
+                        <a routerLink="diary" class="">My Diary</a>
+
+                        <!-- notification dropdown -->
+                        <div class="flex  flex-1">
+                            <button
+                                id="dropdownNotificationButton"
+                                data-dropdown-toggle="dropdownNotification"
+                                class="inline-flex items-center text-center text-sm font-medium text-gray-700 hover:text-gray-900 focus:outline-none dark:text-gray-400 dark:hover:text-white"
+                                type="button">
+                                <svg class="h-6 w-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"></path>
+                                </svg>
+                                <div class="relative flex">
+                                    <div class="relative -top-2 right-3 inline-flex h-3 w-3 rounded-full border-2 border-white bg-red-500 dark:border-gray-900"></div>
+                                </div>
+                            </button>
+                            <!-- Dropdown menu -->
+                            <div
+                                id="dropdownNotification"
+                                class="z-20 hidden w-full max-w-sm divide-y divide-gray-100 rounded-lg bg-white shadow dark:divide-gray-700 dark:bg-gray-800"
+                                aria-labelledby="dropdownNotificationButton">
+                                <div class="block rounded-t-lg bg-gray-50 px-4 py-2 text-center font-medium text-gray-700 dark:bg-gray-800 dark:text-white">Notifications</div>
+                                <div class="divide-y divide-gray-100 dark:divide-gray-700">
+                                    <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <div class="flex-shrink-0">
+                                            <img class="h-11 w-11 rounded-full" src="/docs/images/people/profile-picture-1.jpg" alt="Jese image" />
+                                            <div class="absolute ml-6 -mt-5 flex h-5 w-5 items-center justify-center rounded-full border border-white bg-blue-600 dark:border-gray-800">
+                                                <svg class="h-3 w-3 text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path>
+                                                    <path d="M3 5a2 2 0 012-2h1a1 1 0 010 2H5v7h2l1 2h4l1-2h2V5h-1a1 1 0 110-2h1a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V5z"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="w-full pl-3">
+                                            <div class="mb-1.5 text-sm text-gray-500 dark:text-gray-400">
+                                                New message from <span class="font-semibold text-gray-900 dark:text-white">Jese Leos</span>: "Hey, what's up? All set for the presentation?"
+                                            </div>
+                                            <div class="text-xs text-blue-600 dark:text-blue-500">a few moments ago</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <div class="flex-shrink-0">
+                                            <img class="h-11 w-11 rounded-full" src="/docs/images/people/profile-picture-2.jpg" alt="Joseph image" />
+                                            <div class="absolute ml-6 -mt-5 flex h-5 w-5 items-center justify-center rounded-full border border-white bg-gray-900 dark:border-gray-800">
+                                                <svg class="h-3 w-3 text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="w-full pl-3">
+                                            <div class="mb-1.5 text-sm text-gray-500 dark:text-gray-400">
+                                                <span class="font-semibold text-gray-900 dark:text-white">Joseph Mcfall</span>
+                                                and
+                                                <span class="font-medium text-gray-900 dark:text-white">5 others</span>
+                                                started following you.
+                                            </div>
+                                            <div class="text-xs text-blue-600 dark:text-blue-500">10 minutes ago</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <div class="flex-shrink-0">
+                                            <img class="h-11 w-11 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="Bonnie image" />
+                                            <div class="absolute ml-6 -mt-5 flex h-5 w-5 items-center justify-center rounded-full border border-white bg-red-600 dark:border-gray-800">
+                                                <svg class="h-3 w-3 text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="w-full pl-3">
+                                            <div class="mb-1.5 text-sm text-gray-500 dark:text-gray-400">
+                                                <span class="font-semibold text-gray-900 dark:text-white">Bonnie Green</span>
+                                                and <span class="font-medium text-gray-900 dark:text-white">141 others</span>
+                                                love your story. See it and view more stories.
+                                            </div>
+                                            <div class="text-xs text-blue-600 dark:text-blue-500">44 minutes ago</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <div class="flex-shrink-0">
+                                            <img class="h-11 w-11 rounded-full" src="/docs/images/people/profile-picture-4.jpg" alt="Leslie image" />
+                                            <div class="absolute ml-6 -mt-5 flex h-5 w-5 items-center justify-center rounded-full border border-white bg-green-400 dark:border-gray-800">
+                                                <svg class="h-3 w-3 text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        fill-rule="evenodd"
+                                                        d="M18 13V5a2 2 0 00-2-2H4a2 2 0 00-2 2v8a2 2 0 002 2h3l3 3 3-3h3a2 2 0 002-2zM5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm1 3a1 1 0 100 2h3a1 1 0 100-2H6z"
+                                                        clip-rule="evenodd"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="w-full pl-3">
+                                            <div class="mb-1.5 text-sm text-gray-500 dark:text-gray-400">
+                                                <span class="font-semibold text-gray-900 dark:text-white">Leslie Livingston</span>
+                                                mentioned you in a comment:
+                                                <span class="font-medium text-blue-500" href="#">@bonnie.green</span>
+                                                what do you say?
+                                            </div>
+                                            <div class="text-xs text-blue-600 dark:text-blue-500">1 hour ago</div>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="flex px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700">
+                                        <div class="flex-shrink-0">
+                                            <img class="h-11 w-11 rounded-full" src="/docs/images/people/profile-picture-5.jpg" alt="Robert image" />
+                                            <div class="absolute ml-6 -mt-5 flex h-5 w-5 items-center justify-center rounded-full border border-white bg-purple-500 dark:border-gray-800">
+                                                <svg class="h-3 w-3 text-white" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14.553 7.106A1 1 0 0014 8v4a1 1 0 00.553.894l2 1A1 1 0 0018 13V7a1 1 0 00-1.447-.894l-2 1z"></path>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="w-full pl-3">
+                                            <div class="mb-1.5 text-sm text-gray-500 dark:text-gray-400">
+                                                <span class="font-semibold text-gray-900 dark:text-white">Robert Brown</span>
+                                                posted a new video: Glassmorphism - learn how to implement the new design trend.
+                                            </div>
+                                            <div class="text-xs text-blue-600 dark:text-blue-500">3 hours ago</div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <a
+                                    href="#"
+                                    class="block rounded-b-lg bg-gray-50 py-2 text-center text-sm font-medium text-gray-900 hover:bg-gray-100 dark:bg-gray-800 dark:text-white dark:hover:bg-gray-700">
+                                    <div class="inline-flex items-center ">
+                                        <svg class="mr-2 h-4 w-4 text-gray-500 dark:text-gray-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z"></path>
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z"
+                                                clip-rule="evenodd"></path>
+                                        </svg>
+                                        View all
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
                         <button
                             type="button"
                             data-dropdown-toggle="language-dropdown"
-                            class="inline-flex items-center text-gray-900 dark:text-gray-300 hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-2 lg:px-4 py-2 lg:py-2.5 mr-2 md:mr-3 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800">
-                            <svg class="w-5 h-5 rounded-full md:mr-2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900">
+                            class="inline-flex items-center rounded-xs text-sm font-medium text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring-4 focus:ring-gray-300 dark:text-gray-300 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
+                            <svg class="h-6 w-6 rounded-full md:mr-2 ring-4 ring-green-400" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 3900 3900">
                                 <path fill="#b22234" d="M0 0h7410v3900H0z" />
                                 <path d="M0 450h7410m0 600H0m0 600h7410m0 600H0m0 600h7410m0 600H0" stroke="#fff" stroke-width="300" />
                                 <path fill="#3c3b6e" d="M0 0h2964v2100H0z" />
@@ -43,18 +306,17 @@ import { Component } from "@angular/core";
                                     <use xlink:href="#e" x="2470" />
                                 </g>
                             </svg>
-                            <span class="hidden mr-2 md:inline">English</span>
-                            <svg class="hidden w-4 h-4 md:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="hidden h-4 w-4 md:inline" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                             </svg>
                         </button>
                         <!-- Dropdown -->
-                        <div class="hidden z-50 my-4 w-48 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700" id="language-dropdown">
+                        <div class="z-50 my-4 hidden w-48 list-none divide-y divide-gray-100 rounded bg-white text-base shadow dark:bg-gray-700" id="language-dropdown">
                             <ul class="py-1" role="none">
                                 <li>
                                     <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
                                         <div class="inline-flex items-center">
-                                            <svg class="h-3.5 w-3.5 rounded-full mr-2" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us" viewBox="0 0 512 512">
+                                            <svg class="mr-2 h-3.5 w-3.5 rounded-full" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-us" viewBox="0 0 512 512">
                                                 <g fill-rule="evenodd">
                                                     <g stroke-width="1pt">
                                                         <path
@@ -77,7 +339,7 @@ import { Component } from "@angular/core";
                                 <li>
                                     <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
                                         <div class="inline-flex items-center">
-                                            <svg class="h-3.5 w-3.5 rounded-full mr-2" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-de" viewBox="0 0 512 512">
+                                            <svg class="mr-2 h-3.5 w-3.5 rounded-full" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-de" viewBox="0 0 512 512">
                                                 <path fill="#ffce00" d="M0 341.3h512V512H0z" />
                                                 <path d="M0 0h512v170.7H0z" />
                                                 <path fill="#d00" d="M0 170.7h512v170.6H0z" />
@@ -89,7 +351,7 @@ import { Component } from "@angular/core";
                                 <li>
                                     <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
                                         <div class="inline-flex items-center">
-                                            <svg class="h-3.5 w-3.5 rounded-full mr-2" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-it" viewBox="0 0 512 512">
+                                            <svg class="mr-2 h-3.5 w-3.5 rounded-full" xmlns="http://www.w3.org/2000/svg" id="flag-icon-css-it" viewBox="0 0 512 512">
                                                 <g fill-rule="evenodd" stroke-width="1pt">
                                                     <path fill="#fff" d="M0 0h512v512H0z" />
                                                     <path fill="#009246" d="M0 0h170.7v512H0z" />
@@ -104,7 +366,7 @@ import { Component } from "@angular/core";
                                     <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
                                         <div class="inline-flex items-center">
                                             <svg
-                                                class="h-3.5 w-3.5 rounded-full mr-2"
+                                                class="mr-2 h-3.5 w-3.5 rounded-full"
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 xmlns:xlink="http://www.w3.org/1999/xlink"
                                                 id="flag-icon-css-cn"
@@ -125,268 +387,6 @@ import { Component } from "@angular/core";
                                 </li>
                             </ul>
                         </div>
-                        <a href="#" class="text-sm font-medium text-primary-600 dark:text-primary-500 hover:underline">Login</a>
-                        <span class="mr-0 ml-2 w-px h-5 bg-gray-200 dark:bg-gray-600 lg:inline lg:mr-3 lg:ml-5"></span>
-                        <a href="#" class="inline-flex items-center p-2 text-sm font-medium text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                <path
-                                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z" />
-                            </svg>
-                        </a>
-                        <a href="#" class="inline-flex items-center p-2 text-sm font-medium text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path
-                                    d="M224.1 141c-63.6 0-114.9 51.3-114.9 114.9s51.3 114.9 114.9 114.9S339 319.5 339 255.9 287.7 141 224.1 141zm0 189.6c-41.1 0-74.7-33.5-74.7-74.7s33.5-74.7 74.7-74.7 74.7 33.5 74.7 74.7-33.6 74.7-74.7 74.7zm146.4-194.3c0 14.9-12 26.8-26.8 26.8-14.9 0-26.8-12-26.8-26.8s12-26.8 26.8-26.8 26.8 12 26.8 26.8zm76.1 27.2c-1.7-35.9-9.9-67.7-36.2-93.9-26.2-26.2-58-34.4-93.9-36.2-37-2.1-147.9-2.1-184.9 0-35.8 1.7-67.6 9.9-93.9 36.1s-34.4 58-36.2 93.9c-2.1 37-2.1 147.9 0 184.9 1.7 35.9 9.9 67.7 36.2 93.9s58 34.4 93.9 36.2c37 2.1 147.9 2.1 184.9 0 35.9-1.7 67.7-9.9 93.9-36.2 26.2-26.2 34.4-58 36.2-93.9 2.1-37 2.1-147.8 0-184.8zM398.8 388c-7.8 19.6-22.9 34.7-42.6 42.6-29.5 11.7-99.5 9-132.1 9s-102.7 2.6-132.1-9c-19.6-7.8-34.7-22.9-42.6-42.6-11.7-29.5-9-99.5-9-132.1s-2.6-102.7 9-132.1c7.8-19.6 22.9-34.7 42.6-42.6 29.5-11.7 99.5-9 132.1-9s102.7-2.6 132.1 9c19.6 7.8 34.7 22.9 42.6 42.6 11.7 29.5 9 99.5 9 132.1s2.7 102.7-9 132.1z" />
-                            </svg>
-                        </a>
-                        <a href="#" class="inline-flex items-center p-2 text-sm font-medium text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
-                                <path
-                                    d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z" />
-                            </svg>
-                        </a>
-                        <a href="#" class="inline-flex items-center p-2 text-sm font-medium text-gray-500 rounded-lg dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-600">
-                            <svg class="w-4 h-4" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                <path
-                                    d="M448,209.91a210.06,210.06,0,0,1-122.77-39.25V349.38A162.55,162.55,0,1,1,185,188.31V278.2a74.62,74.62,0,1,0,52.23,71.18V0l88,0a121.18,121.18,0,0,0,1.86,22.17h0A122.18,122.18,0,0,0,381,102.39a121.43,121.43,0,0,0,67,20.14Z" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-            </nav>
-            <nav class="bg-white border-gray-200 dark:bg-gray-700 dark:border-gray-600 border-y">
-                <div class="grid py-4 px-4 mx-auto max-w-screen-xl lg:grid-cols-2 md:px-6">
-                    <form class="flex mb-4 lg:order-2 lg:mb-0">
-                        <label for="search-dropdown" class="mb-2 text-sm font-medium text-gray-900 sr-only dark:text-gray-300">Your Email</label>
-                        <button
-                            id="dropdown-button"
-                            data-dropdown-toggle="dropdown"
-                            class="hidden md:inline-flex flex-shrink-0 z-10 items-center py-2.5 px-4 text-sm font-medium text-center text-gray-900 bg-gray-100 border border-gray-200 rounded-l-lg hover:bg-gray-200 focus:ring-4 focus:outline-none focus:ring-gray-100 dark:bg-gray-900 dark:hover:bg-gray-800 dark:focus:ring-gray-700 dark:text-white dark:border-gray-600"
-                            type="button">
-                            All categories
-                            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </button>
-                        <div
-                            id="dropdown"
-                            class="hidden z-10 w-44 bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700"
-                            data-popper-reference-hidden=""
-                            data-popper-escaped=""
-                            data-popper-placement="top"
-                            style="position: absolute; inset: auto auto 0px 0px; margin: 0px; transform: translate3d(897px, 5637px, 0px);">
-                            <ul class="py-1 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdown-button">
-                                <li>
-                                    <button type="button" class="inline-flex py-2 px-4 w-full hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Mockups</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex py-2 px-4 w-full hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Templates</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex py-2 px-4 w-full hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Design</button>
-                                </li>
-                                <li>
-                                    <button type="button" class="inline-flex py-2 px-4 w-full hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logos</button>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="relative w-full">
-                            <input
-                                type="search"
-                                id="search-dropdown"
-                                class="block p-2.5 w-full z-20 text-sm text-gray-900 bg-gray-50 rounded-lg md:rounded-l-none md:border-l-gray-50 border-l-1 md:border-l-6 border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-800 dark:border-l-gray-600  dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:border-primary-500"
-                                placeholder="Search anything..."
-                                required />
-                            <button
-                                type="submit"
-                                class="absolute top-0 right-0 p-2.5 text-sm font-medium text-white bg-primary-700 rounded-r-lg border border-primary-700 hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">
-                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-                                </svg>
-                            </button>
-                        </div>
-                    </form>
-                    <div class="flex items-center lg:order-1">
-                        <ul class="flex flex-row mt-0 space-x-8 text-sm font-medium">
-                            <li>
-                                <a href="#" class="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-500" aria-current="page">Home</a>
-                            </li>
-                            <li>
-                                <button
-                                    id="dropdown-button-megamenu"
-                                    data-collapse-toggle="megamenu"
-                                    class="flex justify-between items-center w-full font-medium dark:hover:text-primary-500 md:p-0 md:w-auto dark:text-white hover:text-primary-500 dark:focus:text-primary-500">
-                                    Company
-                                    <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            fill-rule="evenodd"
-                                            d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                            clip-rule="evenodd"></path>
-                                    </svg>
-                                </button>
-                            </li>
-                            <li>
-                                <a href="#" class="text-gray-900 dark:text-white hover:text-primary-600 dark:hover:text-primary-500">Marketplace</a>
-                            </li>
-                            <li>
-                                <a href="#" class="hidden text-gray-900 dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Resources</a>
-                            </li>
-                            <li>
-                                <a href="#" class="hidden text-gray-900 dark:text-white hover:text-primary-600 md:inline dark:hover:text-primary-500">Contact</a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-            <nav id="megamenu" class="bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-600">
-                <div class="grid py-4 px-4 mx-auto max-w-screen-xl text-gray-900 dark:text-white md:grid-cols-2 lg:grid-cols-4 md:px-6">
-                    <ul class="col-span-2 md:col-span-1">
-                        <li>
-                            <a href="#" class="flex p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <svg class="mr-2 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                <div>
-                                    <div class="font-semibold">Online Stores</div>
-                                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <svg class="mr-2 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                <div>
-                                    <div class="font-semibold">Segmentation</div>
-                                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <svg class="mr-2 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                <div>
-                                    <div class="font-semibold">Marketing CRM</div>
-                                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="col-span-2 md:col-span-1">
-                        <li>
-                            <a href="#" class="flex p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <svg class="mr-2 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                <div>
-                                    <div class="font-semibold">Audience Management</div>
-                                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <svg class="mr-2 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                <div>
-                                    <div class="font-semibold">Creative Tools</div>
-                                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <svg class="mr-2 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                <div>
-                                    <div class="font-semibold">Marketing Automation</div>
-                                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <ul class="hidden lg:block">
-                        <li>
-                            <a href="#" class="flex p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <svg class="mr-2 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                <div>
-                                    <div class="font-semibold">Dynamic Content</div>
-                                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <svg class="mr-2 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                <div>
-                                    <div class="font-semibold">Integrations</div>
-                                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                                </div>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="flex p-3 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700">
-                                <svg class="mr-2 w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        fill-rule="evenodd"
-                                        d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z"
-                                        clip-rule="evenodd"></path>
-                                </svg>
-                                <div>
-                                    <div class="font-semibold">Careers</div>
-                                    <span class="text-sm font-light text-gray-500 dark:text-gray-400">Connect with third-party tools that you're already using.</span>
-                                </div>
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="col-span-2 p-4 lg:col-span-1">
-                        <h2 class="mb-2 font-semibold text-gray-900 dark:text-white">Our brands</h2>
-                        <p class="mb-2 font-light text-gray-500 dark:text-gray-400">At JBS Foods, we pride ourselves on a portfolio of brands that cater to a variety of preferences.</p>
-                        <a href="#" class="inline-flex items-center text-sm font-medium text-primary-600 hover:text-primary-600 dark:text-primary-500 dark:hover:text-primary-400">
-                            Explore our brands
-                            <svg class="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    fill-rule="evenodd"
-                                    d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
-                                    clip-rule="evenodd"></path>
-                            </svg>
-                        </a>
                     </div>
                 </div>
             </nav>
