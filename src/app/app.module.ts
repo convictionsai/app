@@ -1,3 +1,4 @@
+import { HTTP_INTERCEPTORS } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
@@ -5,6 +6,7 @@ import { RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 import { LoginModule } from "./login/login.module";
+import { AuthJwtInterceptor } from "./shared/authentication/auth-jwt-interceptor";
 import { AuthGuard } from "./shared/authentication/auth.guard";
 import { EventsTimelineComponent } from "./shared/events/events-timeline.component";
 import { HeaderComponent } from "./shared/layout/header.component";
@@ -60,7 +62,13 @@ import { LeftNavComponent } from "./shared/layout/left-nav.component";
         EventsTimelineComponent,
         LoginModule
     ],
-    providers: [],
+    providers: [
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: AuthJwtInterceptor,
+            multi: true
+        }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
