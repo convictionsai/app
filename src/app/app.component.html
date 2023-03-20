@@ -1,4 +1,7 @@
-<div class="absolute top-0 bottom-0 left-0 right-0 flex flex-col">
+<div *ngIf="!authenticationService.loggedIn" class="absolute top-0 bottom-0 left-0 right-0">
+    <convictionsai-login></convictionsai-login>
+</div>
+<div *ngIf="authenticationService.loggedIn" class="absolute top-0 bottom-0 left-0 right-0 flex flex-col">
     <div class="">
         <convictionsai-header></convictionsai-header>
     </div>

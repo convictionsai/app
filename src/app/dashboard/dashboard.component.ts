@@ -7,8 +7,8 @@ import { Component } from "@angular/core";
             <section class="bg-green-50 rounded-xl border-2 border-gray-2 dark:bg-gray=-900">
                 <div class="py-8 px-4 mx-auto">
                     <div class="mx-auto max-w-screen-sm text-center">
-                        <h2 class="mb-4 text-4xl tracking-tight font-extrabold leading-tight text-gray-900 dark:text-white">Start an enriched journey to god today</h2>
-                        <p class="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">Try covictions.ai for free for 30 days. No credit card required.</p>
+                        <h2 class="mb-4 text-4xl tracking-tight font-extrabold leading-tight text-gray-900 dark:text-white">Start your enriched journey to god today</h2>
+                        <p class="mb-6 font-light text-gray-500 dark:text-gray-400 md:text-lg">Try convictions.ai for free for 30 days. No credit card required.</p>
                         <a
                             href="#"
                             class="text-white bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-primary-600 dark:hover:bg-primary-700 focus:outline-none dark:focus:ring-primary-800"
