@@ -1,4 +1,4 @@
-import { HTTP_INTERCEPTORS } from "@angular/common/http";
+import { HTTP_INTERCEPTORS, HttpClientModule } from "@angular/common/http";
 import { NgModule } from "@angular/core";
 import { ReactiveFormsModule } from "@angular/forms";
 import { BrowserModule } from "@angular/platform-browser";
@@ -18,6 +18,7 @@ import { LeftNavComponent } from "./shared/layout/left-nav.component";
         BrowserModule,
         LeftNavComponent,
         HeaderComponent,
+        HttpClientModule,
         ReactiveFormsModule,
         RouterModule.forRoot([
             {
@@ -38,6 +39,11 @@ import { LeftNavComponent } from "./shared/layout/left-nav.component";
             {
                 path: "events",
                 loadChildren: () => import("./events/events.module").then(m => m.EventsModule),
+                canActivate: [AuthGuard]
+            },
+            {
+                path: "search",
+                loadChildren: () => import("./search/search.module").then(m => m.SearchModule),
                 canActivate: [AuthGuard]
             },
             {
