@@ -46,6 +46,11 @@ import { LeftNavComponent } from "./shared/layout/left-nav.component";
                 canActivate: [AuthGuard]
             },
             {
+                path: "tracks",
+                loadChildren: () => import("./tracks/tracks.module").then(m => m.TracksModule),
+                canActivate: [AuthGuard]
+            },
+            {
                 path: "settings",
                 loadChildren: () => import("./settings/settings.module").then(m => m.SettingsModule),
                 canActivate: [AuthGuard]

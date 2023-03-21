@@ -22,6 +22,7 @@ import { IconComponent } from "../icons/icon.component";
                         <!--                        <icon routerLink="community" name="community" [width]="9" class="fill-gray-400"></icon>-->
                         <a routerLink="/dashboard" class="">Home</a>
                         <a routerLink="reader" class="">Reader</a>
+                        <a routerLink="tracks" class="">Tracks</a>
                         <a routerLink="events" class="">Events</a>
                         <a routerLink="community" class="">Community</a>
                     </div>
