@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 @Component({
     selector: "convictionsai-dashboard",
     template: `
-        <div class="flex flex-col gap-10">
+        <div class="flex flex-col gap-10 p-5">
             <section class="bg-green-50 rounded-xl border-2 border-gray-2 dark:bg-gray=-900">
                 <div class="py-8 px-4 mx-auto">
                     <div class="mx-auto max-w-screen-sm text-center">
