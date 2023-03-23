@@ -1,3 +1,7 @@
+export interface Book {
+    id: number;
+    title: string;
+}
 export const books = [
     {
         id: 1,
@@ -37,10 +41,17 @@ export const books = [
     }
 ];
 
-export const getPromptFromBook = (title: string) => {
-    const book = books.find(book => book.title.toLowerCase() === title.toLowerCase());
-    if (book) {
-        return `based on the book of ${title}`;
+export const getPromptFromBook = (title: string | string[]) => {
+    let books: Book[];
+
+    if (Array.isArray(title)) {
+        books = title.map(title => books.find(book => book.title.toLowerCase() === title.toLowerCase()));
+    } else {
+        books = [books.find(book => book.title.toLowerCase() === title.toLowerCase())];
+    }
+
+    if (books) {
+        return `based on the book of ${books.map(book => book.title).join(" and ")}`;
     } else {
         throw new Error(`Book not found: ${title}`);
     }
