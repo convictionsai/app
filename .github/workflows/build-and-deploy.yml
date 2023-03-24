@@ -55,6 +55,25 @@ jobs:
             GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
             CONFIGURATION=${{ env.CONFIGURATION }}
 
+      - name: HashiCorp - Setup Terraform
+        uses: hashicorp/setup-terraform@v1.0.1
+
+      - name: Terraform init
+        id: init
+        run: terraform init -backend-config="access_key=${{ secrets.AWS_ACCESS_KEY_ID }}" -backend-config="secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+
+      - name: Terraform validate
+        id: validate
+        run: terraform validate -no-color
+
+      - name: Terraform plan
+        id: plan
+        run: terraform plan -no-color
+
+      - name: Terraform apply
+        id: apply
+        run: terraform apply --auto-approve -no-color
+
       - uses: sarisia/actions-status-discord@v1
         if: always()
         with:
