@@ -62,7 +62,7 @@ jobs:
         id: init
         run: terraform init -backend-config="access_key=${{ secrets.BACKEND_CIVO_ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.BACKEND_CIVO_SECRET_KEY }}"
 
-      - name: Terraform Format
+      - name: Terraform format
         id: fmt
         working-directory: ${{ env.WORKING_DIRECTORY }}
         run: terraform fmt
