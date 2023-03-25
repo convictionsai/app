@@ -24,10 +24,14 @@ data "civo_kubernetes_cluster" "my-cluster" {
   name = "sandbox"
 }
 
+locals {
+  kubeconfig_map = yamldecode(data.civo_kubernetes_cluster.my-cluster.kubeconfig)
+}
+
 provider "kubernetes" {
-  host                   = data.civo_kubernetes_cluster.my-cluster.kubeconfig.server
-  token                  = data.civo_kubernetes_cluster.my-cluster.kubeconfig.token
-  cluster_ca_certificate = base64decode(data.civo_kubernetes_cluster.my-cluster.kubeconfig.certificate_authority_data)
+  host                   = data.civo_kubernetes_cluster.my-cluster.api_endpoint
+  token                  = local.kubeconfig_map.users[0].user.token
+  cluster_ca_certificate = base64decode(local.kubeconfig_map.clusters[0].cluster.certificate-authority-data)
 }
 
 terraform {
