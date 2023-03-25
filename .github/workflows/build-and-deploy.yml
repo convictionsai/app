@@ -1,6 +1,6 @@
 on:
-  repository_dispatch:
   workflow_dispatch:
+  repository_dispatch:
     inputs:
       environment:
         type: "environment"
