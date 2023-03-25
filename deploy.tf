@@ -1,10 +1,33 @@
-provider "kubernetes" {
+/* provider "kubernetes" {
 
   host  = var.KUBERNETES_SERVER
   token = var.KUBERNETES_TOKEN
   #cluster_ca_certificate = file("<path-to-your-ca-certificate>")
   insecure = true
 
+} */
+
+terraform {
+  required_providers {
+    civo = {
+      source  = "civo/civo"
+      version = "1.0.31" # Use the last available version
+    }
+  }
+}
+
+provider "civo" {
+  token = var.civo_api_token
+}
+
+data "civo_kubernetes_cluster" "my-cluster" {
+  name = "sandbox"
+}
+
+provider "kubernetes" {
+  host                   = data.civo_kubernetes_cluster.my-cluster.kubeconfig[0].server
+  token                  = data.civo_kubernetes_cluster.my-cluster.kubeconfig[0].token
+  cluster_ca_certificate = base64decode(data.civo_kubernetes_cluster.my-cluster.kubeconfig[0].certificate_authority_data)
 }
 
 terraform {
@@ -165,4 +188,10 @@ variable "KUBERNETES_SERVER" {
 variable "KUBERNETES_TOKEN" {
   type        = string
   description = "Kubernetes token to auth with the endpoint for the TF Kubernetes provider"
+}
+
+variable "civo_api_token" {
+  description = "Civo API token"
+  type        = string
+  sensitive   = true
 }
