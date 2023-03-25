@@ -58,7 +58,7 @@ jobs:
             GITHUB_TOKEN=${{ secrets.GITHUB_TOKEN }}
             CONFIGURATION=${{ env.CONFIGURATION }}
 
-      - name: HashiCorp - Setup Terraform
+      - name: Setup Terraform
         uses: hashicorp/setup-terraform@v2
 
       - name: Terraform init
@@ -76,7 +76,7 @@ jobs:
       - name: Terraform plan
         id: plan
         run: |
-          terraform plan --auto-approve -no-color \
+          terraform plan -no-color \
             -var KUBERNETES_SERVER=${{ secrets.KUBERNETES_SERVER}} \
             -var KUBERNETES_TOKEN=${{ secrets.KUBERENTES_TOKEN }}
         continue-on-error: true
