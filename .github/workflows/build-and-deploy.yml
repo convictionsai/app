@@ -76,9 +76,7 @@ jobs:
       - name: Terraform plan
         id: plan
         run: |
-          terraform plan -no-color \
-            -var KUBERNETES_SERVER=${{ secrets.KUBERNETES_SERVER}} \
-            -var KUBERNETES_TOKEN=${{ secrets.KUBERNETES_TOKEN }}
+          terraform plan -no-color -var KUBERNETES_SERVER=${{ secrets.KUBERNETES_SERVER }} -var KUBERNETES_TOKEN=${{ secrets.KUBERNETES_TOKEN }}
         continue-on-error: true
 
       - uses: actions/github-script@v6
@@ -115,7 +113,7 @@ jobs:
         if: github.event_name == 'push'
         run: |
           terraform apply --auto-approve -no-color \
-            -var KUBERNETES_SERVER=${{ secrets.KUBERNETES_SERVER}} \
+            -var KUBERNETES_SERVER=${{ secrets.KUBERNETES_SERVER }} \
             -var KUBERNETES_TOKEN=${{ secrets.KUBERNETES_TOKEN }}
 
       - uses: sarisia/actions-status-discord@v1
