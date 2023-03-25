@@ -7,7 +7,8 @@ provider "kubernetes" {
   #alias = "this"
   host  = var.KUBERNETES_SERVER
   token = var.KUBERNETES_TOKEN
-  #insecure = true
+  #cluster_ca_certificate = file("<path-to-your-ca-certificate>")
+  insecure = true
 
 }
 
