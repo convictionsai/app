@@ -59,7 +59,7 @@ jobs:
             CONFIGURATION=${{ env.CONFIGURATION }}
 
       - name: HashiCorp - Setup Terraform
-        uses: hashicorp/setup-terraform@v1.0.1
+        uses: hashicorp/setup-terraform@v2
 
       - name: Terraform init
         id: init
