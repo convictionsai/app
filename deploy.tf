@@ -4,13 +4,12 @@
 
 provider "kubernetes" {
 
-    #alias = "this"
-    host     = var.KUBERNETES_SERVER
-    token    = var.KUBERNETES_TOKEN
-    #insecure = true
+  #alias = "this"
+  host  = var.KUBERNETES_SERVER
+  token = var.KUBERNETES_TOKEN
+  #insecure = true
 
 }
-
 
 terraform {
   backend "s3" {
@@ -27,147 +26,147 @@ terraform {
 
 module "deployment-frontend-app" {
 
-    source = "github.com/convictionsai/terraform-kubernetes-deployment"
+  source = "github.com/convictionsai/terraform-kubernetes-deployment"
 
-    repo = {
-        type      = "frontend"
-        namespace = "convictionsai"
-        name      = "app"
-        version   = "0.0.6"
-        resources = {
-            replicas = 1
-            cpu      = "500m"
-            memory   = "512Mi"
-        }
-        networking = {
-            ports = [
-                {
-                    name          = "http"
-                    containerPort = 8080
-                    targetPort    = 8080
-                    protocol      = "TCP"
-
-                }
-            ]
-            ingress = {
-                hostname = "app.convictions.ai"
-                path     = "/"
-            }
-        }
+  repo = {
+    type      = "frontend"
+    namespace = "convictionsai"
+    name      = "app"
+    version   = "0.0.6"
+    resources = {
+      replicas = 1
+      cpu      = "500m"
+      memory   = "512Mi"
     }
+    networking = {
+      ports = [
+        {
+          name          = "http"
+          containerPort = 8080
+          targetPort    = 8080
+          protocol      = "TCP"
 
-    environment_variables = {
-
+        }
+      ]
+      ingress = {
+        hostname = "app.convictions.ai"
+        path     = "/"
+      }
     }
+  }
+
+  environment_variables = {
+
+  }
 }
 
 resource "kubernetes_service_account" "cicd" {
-    metadata {
-        name      = "cicd"
-        namespace = "convictionsai"
-    }
+  metadata {
+    name      = "cicd"
+    namespace = "convictionsai"
+  }
 }
 
 resource "kubernetes_cluster_role" "cicd" {
-    metadata {
-        name = "cicd"
-    }
+  metadata {
+    name = "cicd"
+  }
 
-    rule {
-        api_groups = [
-            ""
-        ]
-        resources  = [
-            "componentstatuses"
-        ]
-        verbs      = [
-            "list"
-        ]
-    }
+  rule {
+    api_groups = [
+      ""
+    ]
+    resources = [
+      "componentstatuses"
+    ]
+    verbs = [
+      "list"
+    ]
+  }
 
-    rule {
-        api_groups = [
-            ""
-        ]
-        resources  = [
-            "componentstatuses"
-        ]
-        verbs      = [
-            "list"
-        ]
-    }
+  rule {
+    api_groups = [
+      ""
+    ]
+    resources = [
+      "componentstatuses"
+    ]
+    verbs = [
+      "list"
+    ]
+  }
 
-    rule {
-        api_groups = [
-            "networking.k8s.io"
-        ]
-        resources  = [
-            "ingresses"
-        ]
-        verbs      = [
-            "get",
-            "create",
-            "update",
-            "delete"
-        ]
-    }
+  rule {
+    api_groups = [
+      "networking.k8s.io"
+    ]
+    resources = [
+      "ingresses"
+    ]
+    verbs = [
+      "get",
+      "create",
+      "update",
+      "delete"
+    ]
+  }
 
-    rule {
-        api_groups = [
-            ""
-        ]
-        resources  = [
-            "services"
-        ]
-        verbs      = [
-            "get",
-            "create",
-            "update",
-            "delete"
-        ]
-    }
+  rule {
+    api_groups = [
+      ""
+    ]
+    resources = [
+      "services"
+    ]
+    verbs = [
+      "get",
+      "create",
+      "update",
+      "delete"
+    ]
+  }
 
-    rule {
-        api_groups = [
-            "apps"
-        ]
-        resources  = [
-            "deployments"
-        ]
-        verbs      = [
-            "get",
-            "create",
-            "update",
-            "delete"
-        ]
-    }
+  rule {
+    api_groups = [
+      "apps"
+    ]
+    resources = [
+      "deployments"
+    ]
+    verbs = [
+      "get",
+      "create",
+      "update",
+      "delete"
+    ]
+  }
 }
 
 resource "kubernetes_cluster_role_binding" "cicd" {
-    metadata {
-        name = "cicd"
-    }
+  metadata {
+    name = "cicd"
+  }
 
-    role_ref {
-        api_group = "rbac.authorization.k8s.io"
-        kind      = "ClusterRole"
-        name      = "cicd"
-    }
+  role_ref {
+    api_group = "rbac.authorization.k8s.io"
+    kind      = "ClusterRole"
+    name      = "cicd"
+  }
 
-    subject {
-        kind      = "ServiceAccount"
-        name      = "cicd"
-        namespace = "convictionsai"
+  subject {
+    kind      = "ServiceAccount"
+    name      = "cicd"
+    namespace = "convictionsai"
 
-    }
+  }
 }
 
 variable "KUBERNETES_SERVER" {
-    type = string
-    description = "Kubernetes server endpoint for the TF Kubernetes provider"
+  type        = string
+  description = "Kubernetes server endpoint for the TF Kubernetes provider"
 }
 
 variable "KUBERNETES_TOKEN" {
-    type = string
-    description = "Kubernetes token to auth with the endpoint for the TF Kubernetes provider"
+  type        = string
+  description = "Kubernetes token to auth with the endpoint for the TF Kubernetes provider"
 }
