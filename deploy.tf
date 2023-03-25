@@ -25,9 +25,9 @@ data "civo_kubernetes_cluster" "my-cluster" {
 }
 
 provider "kubernetes" {
-  host                   = data.civo_kubernetes_cluster.my-cluster.kubeconfig[0].server
-  token                  = data.civo_kubernetes_cluster.my-cluster.kubeconfig[0].token
-  cluster_ca_certificate = base64decode(data.civo_kubernetes_cluster.my-cluster.kubeconfig[0].certificate_authority_data)
+  host                   = data.civo_kubernetes_cluster.my-cluster.kubeconfig.server
+  token                  = data.civo_kubernetes_cluster.my-cluster.kubeconfig.token
+  cluster_ca_certificate = base64decode(data.civo_kubernetes_cluster.my-cluster.kubeconfig.certificate_authority_data)
 }
 
 terraform {
@@ -180,7 +180,7 @@ resource "kubernetes_cluster_role_binding" "cicd" {
   }
 }
 
-variable "KUBERNETES_SERVER" {
+/* variable "KUBERNETES_SERVER" {
   type        = string
   description = "Kubernetes server endpoint for the TF Kubernetes provider"
 }
@@ -188,7 +188,7 @@ variable "KUBERNETES_SERVER" {
 variable "KUBERNETES_TOKEN" {
   type        = string
   description = "Kubernetes token to auth with the endpoint for the TF Kubernetes provider"
-}
+} */
 
 variable "civo_api_token" {
   description = "Civo API token"
