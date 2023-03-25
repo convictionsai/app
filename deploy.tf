@@ -4,7 +4,6 @@
 
 provider "kubernetes" {
 
-  context
   #alias = "this"
   host  = var.KUBERNETES_SERVER
   token = var.KUBERNETES_TOKEN
