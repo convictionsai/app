@@ -161,3 +161,13 @@ resource "kubernetes_cluster_role_binding" "cicd" {
 
     }
 }
+
+variable "KUBERNETES_SERVER" {
+    type = string
+    description = "Kubernetes server endpoint for the TF Kubernetes provider"
+}
+
+variable "KUBERNETES_TOKEN" {
+    type = string
+    description = "Kubernetes token to auth with the endpoint for the TF Kubernetes provider"
+}
