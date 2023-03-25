@@ -30,7 +30,7 @@ locals {
 
 provider "kubernetes" {
   host                   = data.civo_kubernetes_cluster.my-cluster.api_endpoint
-  token                  = local.kubeconfig_map.users[0].user.token
+  token                  = local.kubeconfig_map.users[0].user.client-key-data
   cluster_ca_certificate = base64decode(local.kubeconfig_map.clusters[0].cluster.certificate-authority-data)
 }
 
