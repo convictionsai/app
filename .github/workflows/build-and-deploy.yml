@@ -60,7 +60,12 @@ jobs:
 
       - name: Terraform init
         id: init
-        run: terraform init -backend-config="access_key=${{ secrets.AWS_ACCESS_KEY_ID }}" -backend-config="secret_key=${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+        run: terraform init -backend-config="access_key=${{ secrets.BACKEND_CIVO_ACCESS_KEY }}" -backend-config="secret_key=${{ secrets.BACKEND_CIVO_SECRET_KEY }}"
+
+      - name: Terraform Format
+        id: fmt
+        working-directory: ${{ env.WORKING_DIRECTORY }}
+        run: terraform fmt
 
       - name: Terraform validate
         id: validate
@@ -68,11 +73,48 @@ jobs:
 
       - name: Terraform plan
         id: plan
-        run: terraform plan -no-color
+        run: |
+          terraform plan --auto-approve -no-color \
+            -var KUBERNETES_SERVER=${{ secrets.KUBERNETES_SERVER}} \
+            -var KUBERNETES_TOKEN=${{ secrets.KUBERENTES_TOKEN }}
+        continue-on-error: true
+
+      - uses: actions/github-script@v6
+        if: github.event_name == 'pull_request'
+        env:
+          PLAN: "terraform\n${{ steps.plan.outputs.stdout }}"
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const output = `#### Terraform Format and Style 🖌\`${{ steps.fmt.outcome }}\`
+            #### Terraform Initialization ⚙️\`${{ steps.init.outcome }}\`
+            #### Terraform Validation 🤖\`${{ steps.validate.outcome }}\`
+            #### Terraform Plan 📖\`${{ steps.plan.outcome }}\`
+            <details><summary>Show Plan</summary>
+            <pre>
+            ${process.env.PLAN}
+            </pre>
+            </details>
+            <hr>
+            Triggered by: @${{ github.actor }}`;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: output
+            })
+            
+      - name: Terraform Plan Status
+        if: steps.plan.outcome == 'failure'
+        run: exit 1
 
       - name: Terraform apply
         id: apply
-        run: terraform apply --auto-approve -no-color
+        if: github.event_name == 'push'
+        run: |
+          terraform apply --auto-approve -no-color \
+            -var KUBERNETES_SERVER=${{ secrets.KUBERNETES_SERVER}} \
+            -var KUBERNETES_TOKEN=${{ secrets.KUBERENTES_TOKEN }}
 
       - uses: sarisia/actions-status-discord@v1
         if: always()
