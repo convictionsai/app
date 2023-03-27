@@ -1,12 +1,3 @@
-/* provider "kubernetes" {
-
-  host  = var.KUBERNETES_SERVER
-  token = var.KUBERNETES_TOKEN
-  #cluster_ca_certificate = file("<path-to-your-ca-certificate>")
-  insecure = true
-
-} */
-
 terraform {
   required_providers {
     civo = {
@@ -30,8 +21,9 @@ locals {
 
 provider "kubernetes" {
   host                   = data.civo_kubernetes_cluster.my-cluster.api_endpoint
-  token                  = base64decode(local.kubeconfig_map.users[0].user.client-key-data)
+  client_key             = base64decode(local.kubeconfig_map.users[0].user.client-key-data)
   cluster_ca_certificate = base64decode(local.kubeconfig_map.clusters[0].cluster.certificate-authority-data)
+  client_certificate     = base64decode(local.kubeconfig_map.users[0].user.client-certificate-data)
 }
 
 terraform {
