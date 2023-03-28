@@ -73,7 +73,7 @@ import { IconComponent } from "../icons/icon.component";
                                 (keyup.enter)="search()"
                                 type="search"
                                 id="search-dropdown"
-                                class="border-l-1 md:border-l-6 z-20 block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:border-l-gray-600 dark:bg-gray-800 dark:text-white  dark:placeholder-gray-400 dark:focus:border-primary-500 md:rounded-l-none md:border-l-gray-50"
+                                class=" border-none border-l-1 md:border-l-6 z-20 block w-full rounded-lg border-gray-300 bg-gray-50 h-full text-sm text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-600 dark:border-l-gray-600 dark:bg-gray-800 dark:text-white  dark:placeholder-gray-400 dark:focus:border-primary-500 rounded-l-none md:border-l-gray-50"
                                 placeholder="Search anything..."
                                 required />
                             <button
