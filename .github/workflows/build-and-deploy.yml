@@ -1,4 +1,4 @@
-name: "Build-Push-Deploy APP to Kubernetes"
+name: "Build-Push / Deploy (merge) APP to Kubernetes"
 
 on:
   workflow_dispatch:
