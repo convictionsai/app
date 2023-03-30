@@ -43,11 +43,11 @@ module "deployment-frontend-app" {
 
   source = "github.com/convictionsai/terraform-kubernetes-deployment"
 
-  repo = {
-    type      = "frontend"
-    namespace = "convictionsai"
+  settings = {
     name      = "app"
+    type      = "frontend"
     version   = "0.0.6"
+    namespace = "convictionsai"
     resources = {
       replicas = 1
       cpu      = "500m"
@@ -68,10 +68,6 @@ module "deployment-frontend-app" {
         path     = "/"
       }
     }
-  }
-
-  environment_variables = {
-
   }
 }
 
