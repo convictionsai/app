@@ -1,4 +1,4 @@
-name: "Build-Push-Deploy APP to Kubernetes"
+name: "Build-Push / Deploy (merge) APP to Kubernetes"
 
 on:
   workflow_dispatch:
@@ -19,7 +19,7 @@ on:
       - "*"
 
 jobs:
-  deploy:
+  build-push-plan-deploy:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -85,7 +85,7 @@ jobs:
 
       - name: Terraform apply
         id: apply
-        if: github.event_name == 'push'
+        if: github.ref == 'refs/heads/"main"' && github.event_name == 'push'
         run: |
           terraform apply --auto-approve -no-color \
             -var "civo_api_token=${{ secrets.CIVO_API_TOKEN }}"
