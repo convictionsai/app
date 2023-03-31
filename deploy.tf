@@ -48,6 +48,7 @@ module "deployment-frontend-app" {
     type      = "frontend"
     version   = "0.0.6"
     namespace = "convictionsai"
+    environment = "dev"
     resources = {
       replicas = 1
       cpu      = "500m"
@@ -68,6 +69,13 @@ module "deployment-frontend-app" {
         path     = "/"
       }
     }
+            env = {
+            PORT        = 8080
+            DB_HOST     = "mysql"
+            DB_PORT     = 3306
+            DB_USERNAME = "changeme"
+            DB_PASSWORD = "changeme"
+        }
   }
 }
 
