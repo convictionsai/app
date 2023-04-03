@@ -84,6 +84,12 @@ resource "kubernetes_service_account" "cicd" {
     name      = "cicd"
     namespace = "convictionsai"
   }
+
+  lifecycle {
+    ignore_changes = [
+        secret
+    ]
+  }
 }
 
 resource "kubernetes_cluster_role" "cicd" {
