@@ -21,8 +21,7 @@ COPY tsconfig.spec.json tsconfig.spec.json
 COPY angular.json angular.json
 COPY tailwind.config.js tailwind.config.js
 
-#RUN npm run build:${CONFIGURATION}
-RUN npm run build
+RUN npm run build:${CONFIGURATION}
 
 FROM nginxinc/nginx-unprivileged:stable-alpine
 
